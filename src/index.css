@@ -19,7 +19,7 @@
 /* Navbar  */
 
 .header {
-  min-height: 800px;
+  min-height: 850px;
   width: 100%;
   background-image: url(https://free4kwallpapers.com/uploads/originals/2021/05/27/geometric-wallpaper.jpg);
   background-repeat: no-repeat;
@@ -140,6 +140,48 @@
 .quick__tools {
   color: white;
   background-color: #31383b;
+}
+
+/* Templates */
+
+.templates__container {
+  height: 315px;
+  width: 315px;
+  display: grid;
+  grid-template-columns: repeat(2,45%);
+  grid-template-rows: repeat(2,45%);
+  place-content: center;
+  gap: 6%;
+  margin: 3rem auto 0 auto;
+}
+
+.templates__square {
+  border-radius: 0.75rem;
+  background-color: #31383b;
+  overflow: hidden;
+}
+
+.templates__square__img {
+  height: 75%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.square__img {
+  height: 100%;
+  width: 100%;
+}
+
+.templates__sqaure__title {
+  height: 25%;
+  width: 100%;
+  color: white;
+  display: grid;
+  place-items: center;
+  position: relative;
+  z-index: 1;
+  background-color: #393e41;
 }
 
 /* xs */
@@ -334,11 +376,11 @@
   }
 
   .text__header {
-    font-size: 2.75em;
+    font-size: 2.25em;
   }
   
   .text__description {
-    font-size: 1.6em;
+    font-size: 1.25em;
   }
 
   .quick__acces__container {

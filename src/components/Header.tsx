@@ -2,6 +2,10 @@ import React from 'react'
 
 // Images
 import logo from '../images/logo.png'
+import crop from '../images/crop.jpg'
+import draw from '../images/draw.jpg'
+import offset from '../images/offset.jpg'
+import remove from '../images/remove.jpg'
 
 export default function Header() {
   return (
@@ -63,6 +67,48 @@ export default function Header() {
               <span>
                 Try out new Crop&Snap tools!
               </span>
+            </div>
+          </div>
+          <div className='templates__container'>
+            <div className='templates__square'>
+              <div className='templates__square__img'>
+                <img src={crop} alt="" className='square__img'/>
+              </div>
+              <div className='templates__sqaure__title'>
+                <span>
+                  crop
+                </span>
+              </div>
+            </div>
+            <div className='templates__square'>
+              <div className='templates__square__img'>
+                <img src={draw} alt="" className='square__img'/>
+              </div>
+              <div className='templates__sqaure__title'>
+                <span>
+                  draw
+                </span>
+              </div>
+            </div>
+            <div className='templates__square'>
+              <div className='templates__square__img'>
+                <img src={offset} alt="" className='square__img'/>
+              </div>
+              <div className='templates__sqaure__title'>
+                <span>
+                  offset
+                </span>
+              </div>
+            </div>
+            <div className='templates__square'>
+              <div className='templates__square__img'>
+                <img src={remove} alt="" className='square__img'/>
+              </div>
+              <div className='templates__sqaure__title'>
+                <span>
+                  remove
+                </span>
+              </div>
             </div>
           </div>
         </div>
