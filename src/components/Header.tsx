@@ -34,6 +34,37 @@ export default function Header() {
               No worries, with Crop&Snap you can explore the world of photography from different view, we up here like to do things our way, make sad photos come alive or do some minor enhancements! 
             </p>
           </section>
+          <div className='quick__acces__container'>
+            <div className='quick__start'>
+              <section className='quick__description'>
+                <span>
+                  Start your jurney with Crop&Snap by developing new project
+                </span>
+              </section>
+              <section className='quick__title title__start'>
+                <span>
+                  Start a new project
+                </span>
+              </section>
+            </div>
+            <div className='quick__edit'>
+              <section className='quick__description'>
+                <span>
+                  Make existing project better with our newest advanced tools
+                </span>
+              </section>
+              <section className='quick__title title__edit'>
+                <span>
+                  Edit existing project
+                </span>
+              </section>
+            </div>
+            <div className='quick__tools'>
+              <span>
+                Try out new Crop&Snap tools!
+              </span>
+            </div>
+          </div>
         </div>
     </div>
   )
