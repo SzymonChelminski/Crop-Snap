@@ -19,7 +19,7 @@
 /* Navbar  */
 
 .header {
-  min-height: 850px;
+  height: 1300px;
   width: 100%;
   background-image: url(https://free4kwallpapers.com/uploads/originals/2021/05/27/geometric-wallpaper.jpg);
   background-repeat: no-repeat;
@@ -43,17 +43,25 @@
 
 .navbar__logo {
   height: 2.75rem;
+  cursor: pointer;
 }
 
 .navbar__name {
   display: none;
+  cursor: pointer;
 }
 
-.navbar__bars{
+.navbar__bars {
   font-size: 2.75em;
   color: #3a4246;
   cursor: pointer;
+  cursor: pointer;
+  transition: 250ms;
 }
+
+.navbar__bars:active {
+  color: #8b56ad;
+} 
 
 .navbar__logs {
   display: none;
@@ -95,6 +103,14 @@
   grid-row: span 2;
 }
 
+.quick__start{
+  background-color: #ddc8cb;
+}
+
+.quick__edit{
+  background-color: #d4cbe5;
+}
+
 .quick__start,
 .quick__edit,
 .quick__tools {
@@ -104,19 +120,33 @@
   place-items: center;
   border-radius: 0.5rem;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .quick__description {
   height: 60px;
   width: 100%;
-  font-size: 0.8em;
+  font-size: 0.75em;
   font-weight: 600;
-  text-align: center;
-  display: grid;
-  place-items: center;
-  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding-left: 0.85rem;
   padding-right: 0.85rem;
+  padding: 1.75rem;
+  gap: 1.25rem;
+}
+
+.fa-pen {
+  font-size: 1.75em;
+  color: #7353ba;
+  margin-right: 0.125rem;
+}
+
+.fa-play {
+  font-size: 1.75em;
+  color: #e84855;
+  margin-right: 0.125rem;
 }
 
 .quick__title {
@@ -140,6 +170,8 @@
 .quick__tools {
   color: white;
   background-color: #31383b;
+  position: relative;
+  z-index: 1;
 }
 
 /* Templates */
@@ -152,13 +184,14 @@
   grid-template-rows: repeat(2,45%);
   place-content: center;
   gap: 6%;
-  margin: 3rem auto 0 auto;
+  margin: 7rem auto 0 auto;
 }
 
 .templates__square {
   border-radius: 0.75rem;
   background-color: #31383b;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .templates__square__img {
@@ -184,10 +217,50 @@
   background-color: #393e41;
 }
 
+.drag__drop {
+  height: 141.75px;
+  font-size: 2em;
+  font-weight: 700;
+  color: #5e666b;
+  display: grid;
+  place-items: center;
+  grid-column: span 2;
+  border: 0.2rem dashed #6f767a;
+  cursor: pointer;
+  transition: 250ms; 
+}
+
+.drag__drop:hover {
+  border: 0.2rem dashed #8b56ad;
+}
+
+.drag__drop:hover > .drag__drop__content {
+  color: #8b56ad;
+}
+
+.drag__drop:active {
+  border: 0.2rem dashed #8b56ad;
+}
+
+.drag__drop__content:active {
+  color: #8b56ad;
+}
+
+.drag__drop__content {
+  display: grid;
+  grid-template-columns: repeat(3,50px);
+  place-items: center;
+  transition: 250ms;
+}
+
 /* xs */
 @media (min-width: 475px) {
   .content__container {
     max-width: 475px;
+  }
+  
+  .header {
+    height: 1250px;
   }
 }
 
@@ -196,12 +269,21 @@
   .content__container {
     max-width: 640px;
   }
+
+  .header {
+    height: 1200px;
+  }
+
 }
 
 /* md */
 @media (min-width: 768px) {
   .content__container {
     max-width: 768px;
+  }
+  
+  .header {
+    height: 675px;
   }
 
   .navbar__name {
@@ -225,12 +307,51 @@
     width: 99%;
     grid-column: span 2;
   }
+
+  .templates__container {
+    grid-template-columns: repeat(5,35%);
+    grid-template-rows: repeat(2,35%);
+    position: relative;
+    bottom: 14.5rem;
+  }
+
+  .drag__drop {
+    width: 110.25px;
+    height: 110.25px;
+    font-size: 1em;
+    grid-column: span 1;
+  }
+  
+  .drag__drop__content {
+    grid-template-columns: repeat(3,25px);
+  }
+
+  .quick__description {
+    font-size: 0.68em;
+    gap: 1.25rem;
+  }
+
+  .fa-pen {
+    font-size: 2em;
+    margin-right: 0rem;
+  }
+  
+  .fa-play {
+    font-size: 2em;
+    margin-right: 0rem;
+  }
+
+
 }
 
 /* lg */
 @media (min-width: 1024px) {
   .content__container {
     max-width: 1024px;
+  }
+    
+  .header {
+    height: 750px;
   }
 
   .navbar__bars {
@@ -290,8 +411,10 @@
 
   .quick__description {
     height: 85px;
-    font-size: 0.95em;
+    font-size: 0.9em;
   }
+  
+  
   
   .quick__title {
     height: 42.5px;
@@ -302,12 +425,36 @@
     width: 99.5%;
   }
 
+  .templates__container {
+    grid-template-columns: repeat(5,45%);
+    grid-template-rows: repeat(1,45%);
+  }
+
+  .drag__drop {
+    height: 141.75px;
+    width: 141.75px;
+    font-size: 1.25em;
+    grid-column: span 1;
+  }
+
+  .drag__drop__content {
+    grid-template-columns: repeat(3,30px);
+  }
+
+  .templates__container {
+    margin: 2rem auto 0 auto;
+  }
+
 }
 
 /* xl */
 @media (min-width: 1280px) {
   .content__container {
     max-width: 1280px;
+  }
+  
+  .header {
+    height: 750px;
   }
 
   .navbar{
@@ -345,6 +492,22 @@
   .quick__tools {
     width: 100%;
   }
+
+  .quick__description span{
+    font-size: 0.95em;
+  }
+
+  .fa-pen {
+    font-size: 1.75em;
+    color: #7353ba;
+    margin-right: 0.5rem;
+  }
+  
+  .fa-play {
+    font-size: 1.75em;
+    color: #e84855;
+    margin-right: 0.5rem;
+  }
 }
 
 /* 2xl */
@@ -353,12 +516,16 @@
     max-width: 1536px;
   }
 
+  .header {
+    height: 800px;
+  }
+
   .navbar{
     height: 90px;
   }
 
   .navbar__name {
-    font-size: 2.4em;
+    font-size: 2em;
   }
 
   .navbar__logo {
@@ -372,7 +539,7 @@
   }
 
   .text {
-    text-align: start;
+    text-align: center;
   }
 
   .text__header {
@@ -409,4 +576,10 @@
     font-size: 1.05em;
     margin-top: 2rem;
   }
+
+  .templates__container {
+    gap: 10%;
+    margin: 3.5rem auto 0 auto;
+  }
+
 }

@@ -41,6 +41,7 @@ export default function Header() {
           <div className='quick__acces__container'>
             <div className='quick__start'>
               <section className='quick__description'>
+                <i className="fa-solid fa-play" />
                 <span>
                   Start your jurney with Crop&Snap by developing new project
                 </span>
@@ -53,6 +54,7 @@ export default function Header() {
             </div>
             <div className='quick__edit'>
               <section className='quick__description'>
+                <i className="fa-solid fa-pen" />
                 <span>
                   Make existing project better with our newest advanced tools
                 </span>
@@ -109,6 +111,13 @@ export default function Header() {
                   remove
                 </span>
               </div>
+            </div>
+            <div className='templates__square drag__drop'>
+              <span className='drag__drop__content'>
+                add
+              <i className="fa-solid fa-paperclip"></i>
+                img
+              </span>
             </div>
           </div>
         </div>
