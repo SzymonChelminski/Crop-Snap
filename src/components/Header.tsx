@@ -7,6 +7,51 @@ import draw from '../images/draw.jpg'
 import offset from '../images/offset.jpg'
 import remove from '../images/remove.jpg'
 
+//Animations:
+
+//bars - mobile
+
+function barsFunction(){
+  const barsEl = Array.from(document.getElementsByClassName('bars__animation') as HTMLCollectionOf<HTMLElement>)
+
+  // setTimeout(()=>{
+  //   barsEl[0].classList.add('bars__animate')
+  // },0)
+  // setTimeout(()=>{
+  //   barsEl[1].classList.add('bars__animate')
+  // },250)
+  // setTimeout(()=>{
+  //   barsEl[2].classList.add('bars__animate')
+  // },500)
+  // setTimeout(()=>{
+  //   barsEl[3].classList.add('bars__animate')
+  // },750)
+
+  // barsEl[0].style.zIndex = '6'
+  // barsEl[1].style.zIndex = '7'
+  // barsEl[2].style.zIndex = '8'
+  // barsEl[3].style.zIndex = '9'
+
+  for(let i=0; i<barsEl.length ;i++){
+    let barsIndex = [6,7,8,9]
+    let barsQue = [0,250,500,750]
+
+    barsEl[i].style.zIndex = `${barsIndex[i]}`
+    barsEl[i].style.animationDelay = `${barsQue[i]}ms`
+  }
+
+barsEl.forEach(item =>{
+    item.classList.add('bars__animate')
+  })
+
+setTimeout(()=>{
+  barsEl.forEach(item =>{
+    item.style.zIndex = '-1'
+    item.classList.remove('bars__animate')
+  })
+},1000)
+}
+
 export default function Header() {
   return (
     <div className='header'>
@@ -18,13 +63,25 @@ export default function Header() {
             </span>
           </div>
           <div className='navbar__elements navbar__settings'>
-              <i className="fa-solid fa-bars navbar__bars"/>
+            <div className="navbar__bars" onClick={barsFunction}>
+                <i className="fa-solid fa-bars"></i>
+                <div className="bars__animation__1 bars__animation"></div>
+                <div className="bars__animation__2 bars__animation"></div>
+                <div className="bars__animation__3 bars__animation"></div>
+                <div className="bars__animation__4 bars__animation"></div>
+              </div>
               <span className='navbar__logs'>
                 <i className="fa-solid fa-user"/>
                 login
               </span>
               <span className='navbar__logs navbar__register'>
-                register
+                  <span>
+                    register
+                  </span>
+                  <div className='navbar__register__color1'></div>
+                  <div className='navbar__register__color2'></div>
+                  <div className='navbar__register__color3'></div>
+                  <div className='navbar__register__color4'></div>
               </span>
           </div>
         </nav>

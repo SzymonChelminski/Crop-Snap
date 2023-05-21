@@ -52,16 +52,65 @@
 }
 
 .navbar__bars {
-  font-size: 2.75em;
-  color: #3a4246;
-  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  font-size: 1.25em;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  place-items: center;
+  border-radius: 25%;
+  background-color: #d196f9;
   cursor: pointer;
   transition: 250ms;
+  position: relative;
+  z-index: 5;
 }
 
-.navbar__bars:active {
-  color: #8b56ad;
-} 
+.fa-bars {
+  position: relative;
+  z-index: 999;
+}
+
+.bars__animation__1,
+.bars__animation__2,
+.bars__animation__3,
+.bars__animation__4 {
+  border-radius: 25%;
+  position: fixed;
+}
+
+.bars__animation__1 {
+  background-color: #fff896;
+}
+
+.bars__animation__2 {
+  background-color: #4ADEDE;
+}
+
+.bars__animation__3 { 
+  background-color: #7A7AFF;
+}
+
+.bars__animation__4 {
+  background-color: #d196f9;
+}
+
+.bars__animate {
+  animation: bars__animation 1s 1;
+}
+
+@keyframes bars__animation {
+  from {
+    height: 0px;
+    width: 0px;
+  }
+
+  to {
+    height: 42px;
+    width: 42px;
+  }
+}
 
 .navbar__logs {
   display: none;
@@ -169,6 +218,7 @@
 
 .quick__tools {
   color: white;
+  letter-spacing: 0.5px;
   background-color: #31383b;
   position: relative;
   z-index: 1;
@@ -192,6 +242,18 @@
   background-color: #31383b;
   overflow: hidden;
   cursor: pointer;
+  transition: 200ms;
+}
+
+.templates__square {
+  position: relative;
+  bottom: 0;
+  transition: 0.25s;
+}
+
+.templates__square:hover {
+  bottom: 0.5rem;
+  box-shadow: rgb(143, 143, 143) 0px 0px 0.8125rem 0.2rem;
 }
 
 .templates__square__img {
@@ -215,6 +277,7 @@
   position: relative;
   z-index: 1;
   background-color: #393e41;
+  transition: 200ms;
 }
 
 .drag__drop {
@@ -227,6 +290,7 @@
   grid-column: span 2;
   border: 0.2rem dashed #6f767a;
   cursor: pointer;
+  margin-top: 0.5rem;
   transition: 250ms; 
 }
 
@@ -320,6 +384,7 @@
     height: 110.25px;
     font-size: 1em;
     grid-column: span 1;
+    margin-top: 0rem;
   }
   
   .drag__drop__content {
@@ -340,8 +405,6 @@
     font-size: 2em;
     margin-right: 0rem;
   }
-
-
 }
 
 /* lg */
@@ -375,10 +438,68 @@
   }
 
   .navbar__register {
-    border-radius: 20px;
-    background-color: #e04088;
-    padding: 0.35rem 0.75rem 0.65rem 0.75rem;
+    height: 40px;
+    width: 106.52px;
+    display: grid;
+    place-items: center;
+    border-radius: 2rem;
+    background-color: #c266ff;
+    padding-top: 5.5px;
+    overflow: hidden;
   }
+
+  /* Navbar animation */
+  
+  .navbar__register span {
+    position: relative;
+    z-index: 1;
+  }
+
+  .navbar__register__color1,
+  .navbar__register__color2,
+  .navbar__register__color3,
+  .navbar__register__color4 {
+    height: 40px;
+    width: 100%;
+    border-radius: 50%;
+    position: relative;
+    transition: .3s;
+  }
+
+  .navbar__register__color1 {
+    background-color: #fff896;
+    margin-top: 10px;
+  }
+
+  .navbar__register__color2 {
+    background-color: #4ADEDE;
+    margin-top: -27.5%;
+  }
+
+  .navbar__register__color3 {
+    background-color: rgb(122, 122, 255);
+    margin-top: -27.5%;
+  }
+
+  .navbar__register__color4 {
+    background-color: #c266ff;
+    margin-top: -27.5%;
+  }
+
+  @keyframes navbar__register__animation {
+    from {
+      top: -.5rem;
+    }
+    to {
+      top: -6.5rem;
+    }
+  }
+
+  .navbar__register:hover div{
+    animation: navbar__register__animation 1s 1;
+  }
+
+  /* end of animation */
 
   .text {
     padding: 2rem;
@@ -414,8 +535,6 @@
     font-size: 0.9em;
   }
   
-  
-  
   .quick__title {
     height: 42.5px;
     font-size: 1em;
@@ -442,7 +561,7 @@
   }
 
   .templates__container {
-    margin: 2rem auto 0 auto;
+    margin: 2.5rem auto 0 auto;
   }
 
 }
@@ -471,6 +590,19 @@
 
   .navbar__logs {
     font-size: 1.55em;
+  }
+
+  .navbar__register {
+    height: 45px;
+    width: 120px;
+  }
+
+  .navbar__register__color1,
+  .navbar__register__color2,
+  .navbar__register__color3,
+  .navbar__register__color4 {
+    height: 45px;
+    width: 100%;
   }
 
   .text {
@@ -535,7 +667,11 @@
   .navbar__logs {
     font-size: 1.6em;
     border-radius: 2rem;
-    padding: 0.5rem 1rem 0.82rem 1rem;
+  }
+
+  .navbar__register {
+    height: 45px;
+    width: 125px;
   }
 
   .text {
@@ -574,12 +710,12 @@
   .quick__tools {
     height: 50px;
     font-size: 1.05em;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
   }
 
   .templates__container {
     gap: 10%;
-    margin: 3.5rem auto 0 auto;
+    margin: 3.75rem auto 0 auto;
   }
 
 }
