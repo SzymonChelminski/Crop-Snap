@@ -14,24 +14,6 @@ import remove from '../images/remove.jpg'
 function barsFunction(){
   const barsEl = Array.from(document.getElementsByClassName('bars__animation') as HTMLCollectionOf<HTMLElement>)
 
-  // setTimeout(()=>{
-  //   barsEl[0].classList.add('bars__animate')
-  // },0)
-  // setTimeout(()=>{
-  //   barsEl[1].classList.add('bars__animate')
-  // },250)
-  // setTimeout(()=>{
-  //   barsEl[2].classList.add('bars__animate')
-  // },500)
-  // setTimeout(()=>{
-  //   barsEl[3].classList.add('bars__animate')
-  // },750)
-
-  // barsEl[0].style.zIndex = '6'
-  // barsEl[1].style.zIndex = '7'
-  // barsEl[2].style.zIndex = '8'
-  // barsEl[3].style.zIndex = '9'
-
   for(let i=0; i<barsEl.length ;i++){
     let barsIndex = [6,7,8,9]
     let barsQue = [0,250,500,750]
@@ -49,7 +31,7 @@ setTimeout(()=>{
     item.style.zIndex = '-1'
     item.classList.remove('bars__animate')
   })
-},1000)
+},1250)
 }
 
 export default function Header() {

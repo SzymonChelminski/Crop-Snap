@@ -97,7 +97,7 @@
 }
 
 .bars__animate {
-  animation: bars__animation 1s 1;
+  animation: bars__animation 0.5s 1;
 }
 
 @keyframes bars__animation {
@@ -107,8 +107,8 @@
   }
 
   to {
-    height: 42px;
-    width: 42px;
+    height: 40px;
+    width: 40px;
   }
 }
 
@@ -222,6 +222,12 @@
   background-color: #31383b;
   position: relative;
   z-index: 1;
+  transition: 250ms;
+}
+
+
+.quick__tools:hover {
+  box-shadow: rgb(143, 143, 143) 0px 0px 0.5rem 0.075rem;
 }
 
 /* Templates */
