@@ -5,6 +5,7 @@ import crop_content_fris from '../images/crop_content_frist.png'
 
 export default function ContentFirst() {
   return (
+    <div className='content__first__outline'>
       <div className='content__container'>
         <div className='content__first hidden'>
           <section className='content__first__text'>
@@ -24,5 +25,6 @@ export default function ContentFirst() {
           </div>
         </div>
       </div>
+    </div>
   )
 }

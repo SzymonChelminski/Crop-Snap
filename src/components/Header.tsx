@@ -98,7 +98,7 @@ function pencilFunctionAdd(){
 
 // Logo - dash-array animation
 
-function LogoAnimation(){
+function logoanimation(){
   const logoName = [...document.querySelectorAll<SVGPathElement>('path')];
 
   logoName.forEach(item => {
@@ -125,11 +125,9 @@ function LogoAnimation(){
 
 }
 
-
-
 export default function Header() {
   return (
-    <div className='header' onLoad={LogoAnimation}>
+    <div className='header' onLoad={logoanimation}>
         <nav className='navbar'>
           <div className='navbar__elements navbar__brand'>
             <img src={logo} alt="logo" className='navbar__logo'/>
