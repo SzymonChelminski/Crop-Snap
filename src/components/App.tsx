@@ -3,6 +3,7 @@ import React from 'react'
 // Components
 import Header from './Header'
 import ContentFirst from './ContentFirst'
+import ContentSecond from './ContentSecond'
 
 //Content animattion - scroll/fade in
 
@@ -27,6 +28,7 @@ export default function App() {
     <div className='app' onLoad={obsever}>
       <Header />
       <ContentFirst />
+      <ContentSecond />
     </div>
   )
 }

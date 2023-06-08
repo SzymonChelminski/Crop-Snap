@@ -12,8 +12,8 @@ export default function ContentFirst() {
             <h1 className='content__first__header'>
               <span>
               <span className='content__first__header__sparkles'>Crop images </span> 
-              </span>
               in few seconds!
+              </span>
             </h1>
             <span className='content__first__description'>
               Picture can't fit or overflows the frame?
