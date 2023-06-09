@@ -7,6 +7,10 @@
   font-family: 'Quicksand', sans-serif;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 /* Container for components content */
 .content__container {
   width: 100%;
@@ -429,7 +433,7 @@
   display: grid;
   grid-template-columns: repeat(6,45%);
   align-items: center;
-  gap: 5%;
+  gap: 18px;
   margin: auto;
   overflow-x: scroll;
   padding-left: 5%;
@@ -454,6 +458,9 @@
   background-color: rgb(6, 0, 24);
   overflow: hidden;
   cursor: pointer;
+  position: relative;
+  right: 1px;
+  transition: 200ms;
 }
 
 .carousel__img {
@@ -498,6 +505,20 @@
   display: none;
 }
 
+.content__second__arrows {
+  display: none;
+}
+
+.content__second__arrows i:nth-child(1):hover,
+.content__second__arrows i:nth-child(2):hover {
+  color: #667074;
+}
+
+
+.content__second__arrows i:nth-child(1):active,
+.content__second__arrows i:nth-child(2):active {
+  color: #8e9ba0;
+}
 
 /* xs */
 @media (min-width: 475px) {
@@ -614,6 +635,10 @@
     padding-top: 1rem;
   }
 
+  .carousel__element {
+    margin-left: 1rem;
+  }
+
   .theme__text {
     display: none;
   }
@@ -637,6 +662,17 @@
     font-weight: 600;
     display: block;
     padding-top: 0.5rem;
+  }
+
+  .content__second__arrows {
+    width: 390px;
+    font-size: 2.25em;
+    color: #393e41;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    margin-left: -15px;
+    cursor: pointer;
   }
   
 }
@@ -841,6 +877,10 @@
     padding-left: 0;
   }
 
+  .carousel__element {
+    margin-left: 0;
+  }
+
   .content__second__header {
     font-size: 2em;
     padding-bottom: 0.75rem;
@@ -849,6 +889,11 @@
   .content__second__description,
   .content__second__sparkles {
     font-weight: 700;
+  }
+  
+  .content__second__arrows {
+    width: 430px;
+    margin-left: -43px;
   }
 
 }
@@ -1036,7 +1081,7 @@
 
     .content__first {
       grid-template-columns: 32% 32%;
-      padding-top: 4.25rem;
+      padding-top: 3rem;
     }
 
   /* content__second  */
@@ -1052,11 +1097,10 @@
   }
 
   .content__second__text {
-    padding-top: 1.25rem;
+    padding-top: 1.35rem;
   }
 
   .content__second__header {
-    font-size: 2.25em;
     padding-bottom: 1rem;
   }
 
@@ -1066,3 +1110,4 @@
     font-weight: 700;
   }
 }
+
