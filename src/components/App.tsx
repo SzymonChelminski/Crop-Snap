@@ -4,6 +4,8 @@ import React from 'react'
 import Header from './Header'
 import ContentFirst from './ContentFirst'
 import ContentSecond from './ContentSecond'
+import ContentThird from './ContentThird'
+import ContentFourth from './ContentFourth'
 
 //Content animattion - scroll/fade in
 
@@ -29,6 +31,8 @@ export default function App() {
       <Header />
       <ContentFirst />
       <ContentSecond />
+      <ContentThird />
+      <ContentFourth />
     </div>
   )
 }

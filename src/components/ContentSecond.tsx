@@ -100,9 +100,9 @@ useEffect(() => {
                     </h1>
                    <span className='content__second__description'>
                       Research shows the best parties are the ones with theme clothing. We at Crop&Snap belive the same sticks to images.
-                      <span className='slide__info'>
+                      {/* <span className='slide__info'>
                           (Scroll to see available<span className='content__second__sparkles'>Themes</span>)
-                      </span>
+                      </span> */}
                   </span>
             </div>
         </div>

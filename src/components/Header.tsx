@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // Images
 import logo from '../images/logo.png'
@@ -7,9 +7,12 @@ import draw from '../images/draw.jpg'
 import offset from '../images/offset.jpg'
 import remove from '../images/remove.jpg'
 
+export default function Header() {
 //Animations:
 
 //bars - mobile
+
+const [mobileBarsState, setMobileBarsState] = useState(false)
 
 function barsFunction(){
   const barsEl = Array.from(document.getElementsByClassName('bars__animation') as HTMLCollectionOf<HTMLElement>)
@@ -32,6 +35,22 @@ setTimeout(()=>{
     item.classList.remove('bars__animate')
   })
 },1250)
+
+  const rollbarHeight = document.querySelector<HTMLDivElement>('.bars__rollbar')!
+
+  !mobileBarsState ? rollbarHeight.style.height = '150px' : rollbarHeight.style.height = '0px'
+
+  setTimeout(()=>{
+    setMobileBarsState(prevState => !prevState)
+  },0)
+}
+
+function closeMobileBars(){
+  document.querySelector<HTMLDivElement>('.bars__rollbar')!.style.height = '0px'
+
+  setTimeout(()=>{
+    setMobileBarsState(prevState => !prevState)
+  },0)
 }
 
 //start new project - arrow
@@ -98,7 +117,7 @@ function pencilFunctionAdd(){
 
 // Logo - dash-array animation
 
-function logoanimation(){
+function logoAnimation(){
   const logoName = [...document.querySelectorAll<SVGPathElement>('path')];
 
   logoName.forEach(item => {
@@ -125,9 +144,8 @@ function logoanimation(){
 
 }
 
-export default function Header() {
   return (
-    <div className='header' onLoad={logoanimation}>
+    <div className='header' onLoad={logoAnimation}>
         <nav className='navbar'>
           <div className='navbar__elements navbar__brand'>
             <img src={logo} alt="logo" className='navbar__logo'/>
@@ -153,6 +171,11 @@ export default function Header() {
                 <div className="bars__animation__3 bars__animation"></div>
                 <div className="bars__animation__4 bars__animation"></div>
               </div>
+              <div className="bars__rollbar" onClick={closeMobileBars}>   {/* <---- mobile_nav */}
+                <i className="fa-solid fa-user-check"></i>
+                <i className="fa-solid fa-user-plus"></i>
+                <i className="fa-solid fa-user-xmark"></i>
+                </div>   
               <span className='navbar__logs navbar__login'>
                 <i className="fa-solid fa-user"/>
                 login
