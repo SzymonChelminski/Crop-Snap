@@ -55,6 +55,12 @@ import React, { useEffect } from 'react';
     <div className='content__fourth__outline'>
       <div className='content__container'>
         <div className='content__fourth'>
+          <section className='content__fourth__text'>
+            <h1 className='content__fourth__text__header'>Pick offer that suits you the best!</h1>
+            <span className='content__fourth__text__description'>
+            Make great memes fast with our new meme generator tool. Pick an image, add text to top and bottom and you're done.
+            </span>
+          </section>
           <div className='content__fourth__pricing__container'>
             <div className='offer__card offer__silver'>
               <div className='offer__header'>

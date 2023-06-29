@@ -708,6 +708,19 @@ html {
   gap: 2rem;
 }
 
+.content__fourth__text {
+  text-align: center;
+  padding: 0 2rem 3rem 2rem;
+}
+
+.content__fourth__text__header {
+  padding-bottom: 1rem;
+}
+
+.content__fourth__text__description {
+  font-weight: 500;
+}
+
 .offer__card {
   height: 400px;
   width: 235px;
@@ -1080,6 +1093,14 @@ html {
     padding-bottom: 1rem;
   }
 
+  /* content__fourth */
+
+  .content__fourth__pricing__container {
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(1,1fr);
+    gap: 0.75rem;
+  }
+
 }
 
 /* lg */
@@ -1345,6 +1366,11 @@ html {
     padding-bottom: 2.25rem;
   }
 
+  /* content__fourth */
+
+  .content__fourth__pricing__container {
+    gap: 2rem;
+  }
 
 }
 
@@ -1602,6 +1628,12 @@ html {
     width: 375px;
     font-size: 1.65em;
     padding-bottom: 1.75rem;
+  }
+
+  /* content__fourth */
+
+  .content__fourth__text {
+    max-width: 769px;
   }
 
 }
