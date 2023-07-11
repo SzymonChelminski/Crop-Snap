@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Agdasima&family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Agdasima&display=swap');
 
 *{
   margin: 0;
@@ -409,7 +410,8 @@ html {
   display: grid;
   grid-template-rows: 200px 225px;
   place-items: center;
-  padding-bottom: 25px;
+  padding: 3.5rem 0 3.5rem 0;
+  margin-top: -4rem;
 }
 
 .content__first__header__sparkles {  /* also used in third component */
@@ -464,6 +466,7 @@ html {
   width: 100vw;
   background-color: rgb(231, 231, 231);
   position: relative;
+  padding: 1.35rem 0 1.35rem 0;
 }
 
 .content__second {
@@ -564,6 +567,7 @@ html {
 .content__third__outline {
   width: 100%;
   background-color: rgb(6, 0, 24);
+  padding: 1.3rem 0 1.3rem 0;
 }
 
 .content__third__outline > .content__container {
@@ -686,6 +690,7 @@ html {
 .content__fourth__outline {
   width: 100vw;
   background-color: rgb(231, 231, 231);
+  padding: 3rem 0 3rem 0;
 }
 
 .content__fourth__outline > .content__container {
@@ -697,7 +702,6 @@ html {
   width: 100%;
   display: grid;
   place-items: center;
-  padding: 3rem 0 3rem 0;
 }
 
 .content__fourth__pricing__container {
@@ -718,7 +722,8 @@ html {
 }
 
 .content__fourth__text__description {
-  font-weight: 500;
+  font-weight: 600;
+  color: #393e41;
 }
 
 .offer__card {
@@ -913,6 +918,190 @@ html {
   color: green;
 }
 
+/* FooterMobile  */
+
+.footer__container {
+  width: 100%;
+  color: white;
+  background-color: black;
+}
+
+.footer__top__content {
+  height: 225px;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.footer__top__content > div{
+  display: grid;
+  place-items: center;
+  gap: 2.5rem;
+}
+
+.footer__top__header {
+  font-size: 2.5em;
+  font-family: 'Agdasima', sans-serif;
+  font-weight: 400;
+  position: relative;
+  letter-spacing: -1px;
+  rotate: 4deg;
+}
+
+.footer__top__button {
+  all: unset;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: black;
+  border-radius: 999rem;
+  background-color: white;
+  position: relative;
+  padding: 0.75rem 1rem 0.75rem 1rem;
+  cursor: pointer;
+  rotate: -3deg;
+}
+
+.footer__bottom__content {
+  height: 150px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2,50%);
+  padding: 0 2.75rem 1.5rem 2.75rem;
+}
+
+.footer__bottom__links {
+  align-items: start;
+  position: relative;
+  padding: 2px;
+  overflow: hidden;
+}
+
+.footer__bottom__links ul {
+  height: 100%;
+  width: 100%;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  rotate: 5deg;
+}
+
+.footer__bottom__icons {
+  font-size: 1.35em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  rotate: -7deg;
+  position: relative;
+}
+
+/* FooterPc  */
+
+.footerPC__outline {
+  padding: 2rem;
+  background-color: black;
+}
+
+.footerPC__container {
+  height: 150px;
+  color: white;
+}
+
+.footerPC__top__elements {
+  height: 55%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+}
+
+.footerPC__top__elements span:nth-child(1) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 0.8em;
+}
+
+.footerPC__top__elements span:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.footerPC__top__elements span:nth-child(3) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 0.8em;
+}
+
+.footerPC__bottom__elements {
+  height: 40%;
+  width: 100%;
+  font-size: 0.75em;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.footerPC__bottom__elements span {
+  width: 20%;
+}
+
+.footerPC__email {
+}
+
+.footerPC__email > span {
+  position: relative;
+  bottom: 4px;
+}
+
+.footerPC__email input,
+.footerPC__email button
+{
+  all: unset;
+  display: flex;
+}
+
+.footerPC__email > input {
+  font-size: 0.95em;
+  text-align: center;
+  border-bottom: 1px solid white;
+  position: relative;
+}
+
+.footerPC__email > input::placeholder {
+  color: white;
+}
+
+.footerPC__bottom__elements span:nth-child(2) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footerPC__bottom__elements span:nth-child(3) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footerPC__bottom__elements span:nth-child(4) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footerPC__bottom__elements span:nth-child(5) {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+
 /* xs */
 @media (min-width: 475px) {
   .content__container {
@@ -1099,6 +1288,14 @@ html {
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(1,1fr);
     gap: 0.75rem;
+  }
+  
+  .content__fourth__text__header {
+    font-size: 1.5em;
+  }
+  
+  .content__fourth__text__description {
+    font-size: 1.1em;
   }
 
 }
@@ -1372,6 +1569,18 @@ html {
     gap: 2rem;
   }
 
+  .content__fourth__text {
+    max-width: 700px;
+  }
+  
+  .content__fourth__text__header {
+    font-size: 1.65em;
+  }
+  
+  .content__fourth__text__description {
+    font-size: 1.15em;
+  }
+
 }
 
 /* xl */
@@ -1475,6 +1684,20 @@ html {
 
     .content__third {
       padding: 3.75rem 12.5rem 3.75rem 12.5rem;
+    }
+
+    /* content__fourth  */
+
+    .content__fourth__text {
+      max-width: 750px;
+    }
+    
+    .content__fourth__text__header {
+      font-size: 1.75em;
+    }
+    
+    .content__fourth__text__description {
+      font-size: 1.18em;
     }
   
 }
@@ -1596,7 +1819,7 @@ html {
   /* content__third  */
 
   .content__third {
-    padding: 4rem 16rem 4rem 16rem;
+    padding: 3rem 16rem 3rem 16rem;
   }
 
   .content__third__meme {
@@ -1632,9 +1855,8 @@ html {
 
   /* content__fourth */
 
-  .content__fourth__text {
-    max-width: 769px;
+  .content__fourth__text__description {
+    font-size: 1.25em;
   }
-
 }
 
