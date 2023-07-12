@@ -43,13 +43,10 @@ import React, { useEffect } from 'react';
             setInterval(() => {
               animate(star);
             }, 1000);
-          }, index++ * (interval / 3));
+          }, index++ * (interval / 6));
         }
         
     }},[])
-
-
-
 
   return (
     <div className='content__fourth__outline'>
@@ -61,7 +58,7 @@ import React, { useEffect } from 'react';
               that suits you the best!
             </h1>
             <span className='content__fourth__text__description'>
-            Make great memes fast with our new meme generator tool. Pick an image, add text to top and bottom and you're done.
+              Select offer based on your needs and enjoy bonuses and perks which it provides! Custom one may be ordered via personal call wtih our crew, so it ensures the best expirence.
             </span>
           </section>
           <div className='content__fourth__pricing__container'>

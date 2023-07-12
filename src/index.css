@@ -1005,6 +1005,8 @@ html {
 .footerPC__outline {
   padding: 2rem;
   background-color: black;
+  display: flex;
+  justify-content: center;
 }
 
 .footerPC__container {
@@ -1014,7 +1016,7 @@ html {
 
 .footerPC__top__elements {
   height: 55%;
-  width: 100%;
+  width: 704px;
   display: grid;
   grid-template-columns: 30% 40% 30%;
 }
@@ -1024,6 +1026,7 @@ html {
   align-items: center;
   justify-content: flex-start;
   font-size: 0.8em;
+  cursor: pointer;
 }
 
 .footerPC__top__elements span:nth-child(2) {
@@ -1039,12 +1042,13 @@ html {
   align-items: center;
   justify-content: flex-end;
   font-size: 0.8em;
+  cursor: pointer;
 }
 
 .footerPC__bottom__elements {
   height: 40%;
-  width: 100%;
-  font-size: 0.75em;
+  width: 704px;
+  font-size: 0.8em;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -1052,9 +1056,6 @@ html {
 
 .footerPC__bottom__elements span {
   width: 20%;
-}
-
-.footerPC__email {
 }
 
 .footerPC__email > span {
@@ -1082,17 +1083,20 @@ html {
 
 .footerPC__bottom__elements span:nth-child(2) {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .footerPC__bottom__elements span:nth-child(3) {
   display: flex;
   justify-content: flex-end;
+  cursor: pointer;
 }
 
 .footerPC__bottom__elements span:nth-child(4) {
   display: flex;
   justify-content: flex-end;
+  cursor: pointer;
 }
 
 .footerPC__bottom__elements span:nth-child(5) {
@@ -1101,6 +1105,10 @@ html {
   gap: 1rem;
 }
 
+.footerPC__bottom__elements a {
+  color: white;
+  text-decoration: none;
+}
 
 /* xs */
 @media (min-width: 475px) {
@@ -1699,7 +1707,35 @@ html {
     .content__fourth__text__description {
       font-size: 1.18em;
     }
-  
+    
+    /* footer__PC  */
+
+    .footerPC__top__elements {
+      width: 760px;
+    }
+
+    .footerPC__top__elements span:nth-child(1) {
+      font-size: 0.9em;
+    }
+
+    .footerPC__top__elements span:nth-child(2) {
+      font-size: 1em;
+      font-weight: 600;
+    }
+
+    .footerPC__top__elements span:nth-child(3) {
+      font-size: 0.9em;
+    }
+
+    .footerPC__bottom__elements {
+      width: 760px;
+      font-size: 0.855em;
+    }
+
+    .footerPC__email > input {
+      font-size: 1em;
+    }
+
 }
 
 /* 2xl */

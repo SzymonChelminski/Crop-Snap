@@ -17,16 +17,32 @@ export default function FooterPC() {
         </div>
         <div className='footerPC__bottom__elements'>
           <span className='footerPC__email'>
-           <span>stay in touch:</span>
+           <span>
+            stay in touch:
+            </span>
            <input type="text" placeholder='email'/>
           </span>
-          <span>CREDITS</span>
-          <span>©CHELMINSKI.</span>
-          <span>CONTACT</span>
           <span>
-            <i className="fa-brands fa-linkedin-in"></i>
-            <i className="fa-brands fa-facebook-f"></i>
-            <i className="fa-brands fa-twitter"></i>
+            CREDITS
+          </span>
+          <span>
+            <a href="https://www.linkedin.com/in/szymon-chełmiński-62603b274/" target='blank'>
+            ©CHELMINSKI.
+            </a>
+          </span>
+          <span>
+            CONTACT
+          </span>
+          <span>
+            <a href="https://www.linkedin.com/in/szymon-chełmiński-62603b274/" target='blank'>
+              <i className="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.facebook.com/SzymonChelminski/" target='blank'>
+              <i className="fa-brands fa-facebook-f"></i>
+              </a>
+            <a href="https://twitter.com/i/flow/login?redirect_after_login=%2F%3Flang%3Dpl" target='blank'>
+              <i className="fa-brands fa-twitter"></i>
+              </a>
           </span>
         </div>
       </div>
