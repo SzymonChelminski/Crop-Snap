@@ -39,10 +39,10 @@ export default function FooterPC() {
             </a>
             <a href="https://www.facebook.com/SzymonChelminski/" target='blank'>
               <i className="fa-brands fa-facebook-f"></i>
-              </a>
+            </a>
             <a href="https://twitter.com/i/flow/login?redirect_after_login=%2F%3Flang%3Dpl" target='blank'>
               <i className="fa-brands fa-twitter"></i>
-              </a>
+            </a>
           </span>
         </div>
       </div>
