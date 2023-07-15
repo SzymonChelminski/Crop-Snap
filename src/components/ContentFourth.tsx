@@ -61,8 +61,8 @@ import React, { useEffect } from 'react';
               Select offer based on your needs and enjoy bonuses and perks which it provides! Custom one may be ordered via personal call wtih our crew, so it ensures the best expirence.
             </span>
           </section>
-          <div className='content__fourth__pricing__container'>
-            <div className='offer__card offer__silver'>
+          <div className='content__fourth__pricing__container hidden__cards__container'>
+            <div className='offer__card offer__silver hidden__card'>
               <div className='offer__header'>
               <span className="offer__sparkles__container">
                 <span className="offer__star star__silver">
@@ -83,7 +83,6 @@ import React, { useEffect } from 'react';
                 <span className="offer__title">
                   Silver
                 </span>
-
               </span>
                 <span className='offer__type'>
                   client
@@ -130,7 +129,7 @@ import React, { useEffect } from 'react';
                 <i className="fa-solid fa-arrow-right"></i>
               </button>
             </div>
-            <div className='offer__card offer__gold'>
+            <div className='offer__card offer__gold hidden__card'>
               <div className='offer__header'>
               <span className="offer__sparkles__container">
                 <span className="offer__star star__gold">
@@ -152,7 +151,6 @@ import React, { useEffect } from 'react';
                   Gold
                 </span>
               </span>
-
                 <span className='offer__type'>
                   company
                 </span>
@@ -198,10 +196,10 @@ import React, { useEffect } from 'react';
                 <i className="fa-solid fa-arrow-right"></i>
               </button>
             </div>
-            <div className='offer__card offer__platinum'>
+            <div className='offer__card offer__diamond hidden__card'>
               <div className='offer__header'>
               <span className="offer__sparkles__container">
-                <span className="offer__star star__platinum">
+                <span className='offer__star star__platinum'>
                   <svg viewBox="0 0 512 512">
                   <path d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
                   </svg>

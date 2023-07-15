@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, { useEffect, useState} from 'react'
 
 // Components
 import Header from './Header'
@@ -9,25 +9,56 @@ import ContentFourth from './ContentFourth'
 import FooterMobile from './FooterMobile'
 import FooterPC from './FooterPC'
 
-//Content animation - scroll/fade in
+export default function App() {
 
-function obsever() {
-  let observer = new IntersectionObserver(entries => {
+useEffect(() => {
+
+//Content animation - scroll/fade in (content first)
+
+function observer() {
+  let obs = new IntersectionObserver(entries => {
     entries.forEach((entry) => {
-      if(entry.isIntersecting){
+      if(entry.isIntersecting)
+      {
         entry.target.classList.add('show')
       }
-      else{
-        entry.target.classList.remove('show')
-      }
+      // else
+      // {
+      //   entry.target.classList.remove('show')
+      // }
     })
   })
   
-  const hiddenElement = Array.from(document.getElementsByClassName('hidden') as HTMLCollectionOf<HTMLElement>)
-  observer.observe(hiddenElement[0])
+  const hiddenElement = document.querySelectorAll<HTMLElement>('.hidden')
+  obs.observe(hiddenElement[0])
 }
 
-export default function App() {
+//Content animation - scroll/fade in (content fourth - cards)
+
+function observerCardsFun() {
+
+  let observerCards = new IntersectionObserver(cards => {
+
+    cards.forEach(card =>{
+      if(card.isIntersecting)
+      {
+        const offerCards = document.querySelectorAll<HTMLElement>('.hidden__card')
+        offerCards.forEach(card => {
+          card.classList.add('show__card')
+        })
+      }
+    })
+
+  })
+
+  const hiddenCardsContainer = document.querySelector('.hidden__cards__container') as HTMLDivElement
+  observerCards.observe(hiddenCardsContainer)
+  
+}
+
+observer()
+observerCardsFun()
+},[])
 
 //Screen size check, based on it "FooterMobile" or "FooterPC" will be displayed
 
@@ -38,7 +69,7 @@ setInterval(() => {
 },500)
 
   return (
-    <div className='app' onLoad={obsever}>
+    <div className='app'>
       <Header />
       <ContentFirst />
       <ContentSecond />
