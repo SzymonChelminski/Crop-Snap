@@ -8,8 +8,39 @@ import ContentThird from './ContentThird'
 import ContentFourth from './ContentFourth'
 import FooterMobile from './FooterMobile'
 import FooterPC from './FooterPC'
+import ImageEditor from './ImageEditor'
+import Prompt from './Prompt'
+
+//filerbot library
+import FilerobotImageEditor, {
+  TABS,
+  TOOLS,
+} from 'react-filerobot-image-editor';
 
 export default function App() {
+
+//filerbot
+
+
+const [imgUrl, setImgUrl] = useState('')
+const [promptDisplay, setPromptDisplay] = useState('-100%')
+const [inputValue, setInputValue] = useState('')
+
+const [isImgEditorShown, setIsImgEditorShown] = useState(false);
+
+const openImgEditor = () => {
+  setIsImgEditorShown(true);
+};
+
+const closeImgEditor = () => {
+  setIsImgEditorShown(false);
+};
+
+useEffect(() => {
+
+  console.log(imgUrl)
+  
+},[imgUrl])
 
 useEffect(() => {
 
@@ -70,12 +101,50 @@ setInterval(() => {
 
   return (
     <div className='app'>
-      <Header />
+      <Header
+      handleUrl = {() => setPromptDisplay('40%') }
+
+      handleOpenImageEditor = {() => {
+        imgUrl !== '' ? setIsImgEditorShown(true) : setPromptDisplay('40%')
+        screenSize < 768 ? alert('We are still working on an mobile version :)') : console.log()
+      }}
+      />
       <ContentFirst />
-      <ContentSecond />
+      <ContentSecond
+      handleOpenImageEditor = {() => {
+        imgUrl !== '' ? setIsImgEditorShown(true) : setPromptDisplay('40%')
+        screenSize < 768 ? alert('We are still working on an mobile version :)') : console.log()
+      }}
+      />
       <ContentThird />
       <ContentFourth />
+
       {screenSize >= 768 ? <FooterPC /> : <FooterMobile />}
+
+      {screenSize >= 768 &&
+      <ImageEditor
+
+        display = {isImgEditorShown ? 'block' : 'none'}
+        ImageEditorContent = 
+          {isImgEditorShown && (
+            <FilerobotImageEditor
+            source={imgUrl}
+            onSave={(editedImageObject, designState) => console.log('saved', editedImageObject, designState)}
+            onClose={closeImgEditor}
+            savingPixelRatio={0} previewPixelRatio={0} />
+          )}
+
+      />
+          }
+          <Prompt
+          promptTop = {promptDisplay}
+          handlePrompt = {(e: any) => {setInputValue(e.target.value)}}
+          handleButtonClose = {() => {setPromptDisplay('-100%')}}
+          handleButtonAccept = {() => {
+            setImgUrl(inputValue)
+            setPromptDisplay('-100%')
+          }}
+          />
     </div>
   )
 }

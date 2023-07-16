@@ -8,8 +8,7 @@ import saturated from '../images/saturated.png'
 import sun from '../images/sun.svg'
 import wind from '../images/wind.svg'
 
-
-export default function ContentSecond() {
+export default function ContentSecond(props: any) {
 
 // arrows 
 const [leap, setLeap] = useState(0)
@@ -42,7 +41,7 @@ useEffect(() => {
                     <i className="fa-solid fa-chevron-left" ></i>
                     <i className="fa-solid fa-chevron-right" ></i>
                   </span>
-                    <div className='carousel__element'>
+                    <div className='carousel__element' onClick={props.handleOpenImageEditor}>
                       <section className='carousel__img'>
                         <img src={sun} alt=""/>
                       </section>
@@ -50,7 +49,7 @@ useEffect(() => {
                         sunny
                       </section>
                     </div>
-                    <div className='carousel__element'>
+                    <div className='carousel__element' onClick={props.handleOpenImageEditor}>
                       <section className='carousel__img'>
                         <img src={rain} alt=""/>
                       </section>
@@ -58,7 +57,7 @@ useEffect(() => {
                         rainy
                       </section>
                     </div>
-                    <div className='carousel__element'>
+                    <div className='carousel__element' onClick={props.handleOpenImageEditor}>
                       <section className='carousel__img'>
                       <img src={cloud} alt=""/>
                       </section>
@@ -66,7 +65,7 @@ useEffect(() => {
                         cloudy
                       </section>
                     </div>
-                    <div className='carousel__element'>
+                    <div className='carousel__element' onClick={props.handleOpenImageEditor}>
                       <section className='carousel__img'>
                       <img src={wind} alt=""/>
                       </section>
@@ -74,7 +73,7 @@ useEffect(() => {
                         windy
                       </section>
                     </div>
-                    <div className='carousel__element'>
+                    <div className='carousel__element' onClick={props.handleOpenImageEditor}>
                       <section className='carousel__img'>
                       <img src={mono} alt=""/>
                       </section>
@@ -82,7 +81,7 @@ useEffect(() => {
                         mono
                       </section>
                     </div>
-                    <div className='carousel__element'>
+                    <div className='carousel__element' onClick={props.handleOpenImageEditor}>
                       <section className='carousel__img'>
                       <img src={saturated} alt=""/>
                       </section>

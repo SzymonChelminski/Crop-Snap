@@ -7,7 +7,9 @@ import draw from '../images/draw.jpg'
 import offset from '../images/offset.jpg'
 import remove from '../images/remove.jpg'
 
-export default function Header() {
+
+export default function Header(props: any) {
+
 //Animations:
 
 //bars - mobile
@@ -202,7 +204,7 @@ function logoAnimation(){
             </p>
           </section>
           <div className='quick__acces__container'>
-            <div className='quick__start' onPointerEnter={arrowFunctionAdd} onMouseLeave={arrowFunctionRemove}>
+            <div className='quick__start' onPointerEnter={arrowFunctionAdd} onMouseLeave={arrowFunctionRemove} onClick={props.handleOpenImageEditor}>
               <section className='quick__description arrows__container'>
                 <i className="fa-solid fa-play" id='quick__start__arrow' />
                 <i className="fa-solid fa-play" />
@@ -216,7 +218,7 @@ function logoAnimation(){
                 </span>
               </section>
             </div>
-            <div className='quick__edit' onPointerEnter={pencilFunctionAdd}>
+            <div className='quick__edit' onPointerEnter={pencilFunctionAdd} onClick={props.handleOpenImageEditor}>
               <section className='quick__description'>
                 <i className="fa-solid fa-pen pencil" />
                 <span>
@@ -229,14 +231,14 @@ function logoAnimation(){
                 </span>
               </section>
             </div>
-            <div className='quick__tools'>
+            <div className='quick__tools' onClick={props.handleOpenImageEditor}>
               <span>
                 Try out new Crop&Snap tools!
               </span>
             </div>
           </div>
           <div className='templates__container'>
-            <div className='templates__square'>
+            <div className='templates__square' onClick={props.handleOpenImageEditor}>
               <div className='templates__square__img'>
                 <img src={crop} alt="" className='square__img'/>
               </div>
@@ -246,7 +248,7 @@ function logoAnimation(){
                 </span>
               </div>
             </div>
-            <div className='templates__square'>
+            <div className='templates__square' onClick={props.handleOpenImageEditor}>
               <div className='templates__square__img'>
                 <img src={draw} alt="" className='square__img'/>
               </div>
@@ -256,7 +258,7 @@ function logoAnimation(){
                 </span>
               </div>
             </div>
-            <div className='templates__square'>
+            <div className='templates__square' onClick={props.handleOpenImageEditor}>
               <div className='templates__square__img'>
                 <img src={offset} alt="" className='square__img'/>
               </div>
@@ -266,7 +268,7 @@ function logoAnimation(){
                 </span>
               </div>
             </div>
-            <div className='templates__square'>
+            <div className='templates__square' onClick={props.handleOpenImageEditor}>
               <div className='templates__square__img'>
                 <img src={remove} alt="" className='square__img'/>
               </div>
@@ -276,7 +278,7 @@ function logoAnimation(){
                 </span>
               </div>
             </div>
-            <div className='templates__square drag__drop'>
+            <div className='templates__square drag__drop' onClick={props.handleUrl}>
               <span className='drag__drop__content'>
                 add
               <i className="fa-solid fa-paperclip"></i>
