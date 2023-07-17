@@ -174,16 +174,16 @@ function logoAnimation(){
                 <div className="bars__animation__4 bars__animation"></div>
               </div>
               <div className="bars__rollbar" onClick={closeMobileBars}>   {/* <---- mobile_nav */}
-                <i className="fa-solid fa-user-check"></i>
-                <i className="fa-solid fa-user-plus"></i>
+                <i className="fa-solid fa-user-check" onClick={props.handleLogin}></i>
+                <i className="fa-solid fa-user-plus" onClick={props.handleSignIn}></i>
                 <i className="fa-solid fa-user-xmark"></i>
                 </div>   
-              <span className='navbar__logs navbar__login'>
+              <span className='navbar__logs navbar__login' onClick={props.handleLogin}>
                 <i className="fa-solid fa-user"/>
                 login
               </span>
               <span className='navbar__logs navbar__register'>
-                  <span>
+                  <span onClick={props.handleSignIn}>
                     register
                   </span>
                   <div className='navbar__register__color1'></div>

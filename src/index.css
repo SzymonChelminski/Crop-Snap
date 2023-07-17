@@ -691,7 +691,6 @@ html {
   width: 100vw;
   background-color: rgb(231, 231, 231);
   padding: 3rem 0 3rem 0;
-  overflow: scroll;
 }
 
 .content__fourth__outline > .content__container {
@@ -1095,7 +1094,7 @@ html {
 /* image__editor  */
 
 .image__editor {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   translate: -50% -50%;
@@ -1118,7 +1117,7 @@ html {
   background-color: #31383b;
   padding: 0.5rem 1rem 1rem 1rem;
   box-shadow: rgb(0, 0, 0) 0px 1px 25px 10px;
-  position: absolute;
+  position: fixed;
   top: -100%;
   left: 50%;
   translate: -50% -50%;
@@ -1154,6 +1153,95 @@ html {
 
 .prompt__container button:hover {
   background-color: #ca7cfa;
+}
+
+/* Cognito  */
+.cognito__container {
+  width: 275px;
+  overflow: hidden;
+  position: fixed;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: 999;
+  text-align: center;
+  background-color: #31383b;
+  box-shadow: rgb(0, 0, 0) 0px 1px 25px 10px;
+  border-radius: 0.75rem;
+  transition: all 500ms ease;
+}
+
+ .cognito__carousel__container {
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+  grid-template-columns: repeat(3,275px);
+  padding: 1.5rem 0 1.5rem;
+  position: relative;
+  transition: all 500ms ease;
+}
+
+.cognito__container::-webkit-scrollbar  {
+  display: none;
+}
+
+.cognito__page > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1rem;
+  color: white;
+}
+
+.cognito__page > form > p {
+  font-weight: 500;
+}
+
+.cognito__container form input {
+  all: unset;
+  width: 150px;
+  text-align: center;
+  border: 1px solid rgb(151, 151, 151);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  color: white;
+  transition: all 250ms ease;
+  text-decoration: none;
+}
+
+.cognito__container form input:focus {
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.cognito__page .error__message {
+  width: 200px;
+  word-break: break-all;
+  color: rgb(255, 61, 61);
+}
+
+.buttons__container {
+  font-size: 1.5em;
+  color: rgb(151, 151, 151);
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  place-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cognito__container .cognito__page button {
+  all: unset;
+  cursor: pointer;
+}
+
+.cognito__container .cognito__page button:hover {
+  color: white;
+}
+
+.cognito__container .cognito__page .fa-xmark:hover {
+  color: rgb(233, 71, 71);
+  cursor: pointer;
 }
 
 
@@ -1376,7 +1464,6 @@ html {
   .navbar__logs {
     font-size: 1.35em;
     font-weight: 500;
-    text-transform: capitalize;
     display: block;
   }
 

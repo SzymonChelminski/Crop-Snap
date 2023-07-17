@@ -1,4 +1,6 @@
 import React, { useEffect, useState} from 'react'
+import { CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js'
+import UserPool from '../UserPool'
 
 // Components
 import Header from './Header'
@@ -13,14 +15,114 @@ import Prompt from './Prompt'
 
 //filerbot library
 import FilerobotImageEditor, {
-  TABS,
-  TOOLS,
 } from 'react-filerobot-image-editor';
+
+// Cognito 
+import Cognito from './Cognito'
 
 export default function App() {
 
-//filerbot
+// Cognito
 
+const pages = {
+  page1: '0px',
+  page2: '275px',
+  page3: '550px',
+}
+
+const [carouselPage, setCarouselPage] = useState(pages.page1)
+
+useEffect(() =>{
+
+  const carousel = document.querySelector<HTMLDivElement>('.cognito__carousel__container')
+  carousel!.style.right = carouselPage
+
+})
+
+const [email, setEmail] = useState('')
+const [password, setPassword] = useState('')
+const [errorSignIn, setErrorSignIn] = useState('dziala')
+
+const onSubmitSignIn = (e: any) => {
+    
+    UserPool.signUp(email, password, [], [], (err) => {
+        if (err)
+        {
+            const error = err.toString()
+            setErrorSignIn(error)
+        }
+        else
+        {
+            setErrorSignIn('dziala')
+        }
+    })
+
+    e.preventDefault();
+}
+
+const [login, setLogin] = useState('')
+const [passwordLogin, setPasswordLogin] = useState('')
+const [errorLogin, setErrorLogin] = useState('dziala')
+
+const onSubmitLogin =(e: any) => {
+
+    const user = new CognitoUser({
+        Username: login,
+        Pool: UserPool
+    })
+
+    const authDetails = new AuthenticationDetails({
+        Username: login,
+        Password: passwordLogin,
+    })
+
+    user.authenticateUser(authDetails, {
+        onSuccess: (data) => {
+            console.log('onSucces: ', data)
+            setErrorLogin('dziala')
+        },
+        onFailure: (err) => {
+            const error = err.toString()
+            setErrorLogin(error)
+        },
+        newPasswordRequired: (data) => {
+            console.log('newPasswordRequired: ', data)
+        }
+    })
+
+    e.preventDefault();
+}
+
+const [verifyCode, setVerifyCode] = useState('')
+const [errorCode, setErrorCode] = useState('dziala')
+
+function onSubmitVerify(e: any){
+
+    const userData = {
+        Username: email,
+        Pool: UserPool
+    }
+
+    const cognitoUser = new CognitoUser(userData);
+    cognitoUser.confirmRegistration(verifyCode, true, (err: any, result: any) => {
+        if(err)
+        {   
+            const error = err.toString()
+            setErrorCode(error)
+        }
+        else
+        {
+            console.log(result)
+            setErrorCode('dziala')
+        }
+    })
+
+    e.preventDefault();
+}
+
+const [cognitoDisplayState, setCognitoDisplayState] = useState('-50%')
+
+//filerbot
 
 const [imgUrl, setImgUrl] = useState('')
 const [promptDisplay, setPromptDisplay] = useState('-100%')
@@ -102,6 +204,16 @@ setInterval(() => {
   return (
     <div className='app'>
       <Header
+      handleLogin = {() => {
+        setCarouselPage(pages.page3)
+        setCognitoDisplayState('50%')
+      }}
+
+      handleSignIn = {() => {
+        setCarouselPage(pages.page1)
+        setCognitoDisplayState('50%')
+      }}
+
       handleUrl = {() => setPromptDisplay('40%') }
 
       handleOpenImageEditor = {() => {
@@ -144,6 +256,50 @@ setInterval(() => {
             setImgUrl(inputValue)
             setPromptDisplay('-100%')
           }}
+          />
+          <Cognito
+          cognitoDisplay={cognitoDisplayState}
+          handleCognitoClose ={() => setCognitoDisplayState('-50%')}
+
+          handleCarouselSignIn = {() => {
+            setCarouselPage(pages.page2)
+          }}
+          handleCarouselVerify = {() => {
+            setCarouselPage(pages.page3)
+          }}
+
+          // Sign in 
+
+          HandleonSubmitSignIn = {onSubmitSignIn}
+          
+          handleOnchangeMailSignIn = {(e: any) => {setEmail(e.target.value)}}
+          valueEmailSignIn = {email}
+
+          handleOnchangePasswordSignIn = {(e: any) => {setPassword(e.target.value)}}
+          valuePasswordSignIn = {password}
+
+          errorMessageSignIn = {errorSignIn}
+
+          // Verify 
+
+          handleOnSubmitVerify = {onSubmitVerify}
+
+          handleOnChangeVerify = {(e: any) => {setVerifyCode(e.target.value)}}
+          valueVerify = {verifyCode}
+
+          errorMessageVerify = {errorCode}
+
+          // Login
+
+          handleOnSubmitLogin = {onSubmitLogin}
+
+          handleOnChangeMailLogin = {(e: any) => {setLogin(e.target.value)}}
+          valueMailLogin = {login}
+
+          handleOnChangePasswordLogin = {(e: any) => {setPasswordLogin(e.target.value)}}
+          valuePasswordLogin = {passwordLogin}
+
+          errorMessageLogin = {errorLogin}
           />
     </div>
   )
