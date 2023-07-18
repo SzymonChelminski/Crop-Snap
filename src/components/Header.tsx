@@ -167,7 +167,7 @@ function logoAnimation(){
           </div>
           <div className='navbar__elements navbar__settings'>
             <div className="navbar__bars" onClick={barsFunction}>
-                <i className="fa-solid fa-bars"></i>
+                {props.checkIfLogged ? <i className="fa-solid fa-check"></i> : <i className="fa-solid fa-bars"></i>}
                 <div className="bars__animation__1 bars__animation"></div>
                 <div className="bars__animation__2 bars__animation"></div>
                 <div className="bars__animation__3 bars__animation"></div>
@@ -176,13 +176,15 @@ function logoAnimation(){
               <div className="bars__rollbar" onClick={closeMobileBars}>   {/* <---- mobile_nav */}
                 <i className="fa-solid fa-user-check" onClick={props.handleLogin}></i>
                 <i className="fa-solid fa-user-plus" onClick={props.handleSignIn}></i>
-                <i className="fa-solid fa-user-xmark"></i>
-                </div>   
-              <span className='navbar__logs navbar__login' onClick={props.handleLogin}>
+                <i className="fa-solid fa-user-xmark" onClick={props.handleSignOut}></i>
+                </div>
+                {window.innerWidth >= 1024 && props.checkIfLogged && <span className='navbar__logged__account'>{props.loggedAccount}</span>}
+                {window.innerWidth >= 1024 && props.checkIfLogged && <span className='navbar__log__out' onClick={props.handleSignOut}>Log out</span>}
+              {!props.checkIfLogged && <span className='navbar__logs navbar__login' onClick={props.handleLogin}>
                 <i className="fa-solid fa-user"/>
                 login
-              </span>
-              <span className='navbar__logs navbar__register'>
+              </span>}
+              {!props.checkIfLogged && <span className='navbar__logs navbar__register'>
                   <span onClick={props.handleSignIn}>
                     register
                   </span>
@@ -190,7 +192,7 @@ function logoAnimation(){
                   <div className='navbar__register__color2'></div>
                   <div className='navbar__register__color3'></div>
                   <div className='navbar__register__color4'></div>
-              </span>
+              </span>}
           </div>
         </nav>
         <div className='content__container'>

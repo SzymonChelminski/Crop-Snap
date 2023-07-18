@@ -22,7 +22,7 @@ function Cognito(props: any) {
             <div className='buttons__container'>
                 <i className="fa-solid fa-xmark" onClick={props.handleCognitoClose}></i>
                 <button type="submit">
-                    <i className="fa-solid fa-arrow-right" onClick={props.handleCarouselSignIn}></i>
+                    <i className="fa-solid fa-arrow-right"></i>
                 </button>
             </div>
             </form>
@@ -38,7 +38,7 @@ function Cognito(props: any) {
             <div className='buttons__container'>
                 <i className="fa-solid fa-xmark" onClick={props.handleCognitoClose}></i>
                 <button type="submit">
-                    <i className="fa-solid fa-arrow-right" onClick={props.handleCarouselVerify}></i>
+                    <i className="fa-solid fa-arrow-right"></i>
                 </button>
             </div>
             </form>

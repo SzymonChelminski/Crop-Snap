@@ -23,7 +23,6 @@ export default function ContentThird() {
     function getResponse() {
       if(xhttp.readyState === 4 && xhttp.status === 200){
         const response = JSON.parse(xhttp.response)
-        console.log(response.data.memes)
 
         setMeme(response.data.memes[randomMeme].url)
       }

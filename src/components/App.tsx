@@ -19,6 +19,7 @@ import FilerobotImageEditor, {
 
 // Cognito 
 import Cognito from './Cognito'
+import Message from './Message'
 
 export default function App() {
 
@@ -41,19 +42,20 @@ useEffect(() =>{
 
 const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
-const [errorSignIn, setErrorSignIn] = useState('dziala')
+const [errorSignIn, setErrorSignIn] = useState('')
 
 const onSubmitSignIn = (e: any) => {
     
     UserPool.signUp(email, password, [], [], (err) => {
         if (err)
         {
-            const error = err.toString()
-            setErrorSignIn(error)
+          const error = err.toString()
+          setErrorSignIn(error)
         }
         else
         {
-            setErrorSignIn('dziala')
+          setCarouselPage(pages.page2)
+          setErrorSignIn('')
         }
     })
 
@@ -63,6 +65,8 @@ const onSubmitSignIn = (e: any) => {
 const [login, setLogin] = useState('')
 const [passwordLogin, setPasswordLogin] = useState('')
 const [errorLogin, setErrorLogin] = useState('dziala')
+
+const [isLogged, setIslogged] = useState(false)
 
 const onSubmitLogin =(e: any) => {
 
@@ -79,7 +83,9 @@ const onSubmitLogin =(e: any) => {
     user.authenticateUser(authDetails, {
         onSuccess: (data) => {
             console.log('onSucces: ', data)
-            setErrorLogin('dziala')
+            setCognitoDisplayState('-50%')
+            setErrorLogin('')
+            setIslogged(true)
         },
         onFailure: (err) => {
             const error = err.toString()
@@ -96,12 +102,12 @@ const onSubmitLogin =(e: any) => {
 const [verifyCode, setVerifyCode] = useState('')
 const [errorCode, setErrorCode] = useState('dziala')
 
-function onSubmitVerify(e: any){
+const userData = {
+  Username: email,
+  Pool: UserPool
+}
 
-    const userData = {
-        Username: email,
-        Pool: UserPool
-    }
+function onSubmitVerify(e: any){
 
     const cognitoUser = new CognitoUser(userData);
     cognitoUser.confirmRegistration(verifyCode, true, (err: any, result: any) => {
@@ -113,14 +119,26 @@ function onSubmitVerify(e: any){
         else
         {
             console.log(result)
-            setErrorCode('dziala')
+            setCarouselPage(pages.page3)
+            setErrorCode('')
         }
     })
 
     e.preventDefault();
 }
 
+function onSubmiSignOut(e: any){
+
+  const cognitoUser = new CognitoUser(userData);
+  cognitoUser.signOut()
+
+  setIslogged(false)
+
+  e.preventDefault();
+}
+
 const [cognitoDisplayState, setCognitoDisplayState] = useState('-50%')
+
 
 //filerbot
 
@@ -137,12 +155,6 @@ const openImgEditor = () => {
 const closeImgEditor = () => {
   setIsImgEditorShown(false);
 };
-
-useEffect(() => {
-
-  console.log(imgUrl)
-  
-},[imgUrl])
 
 useEffect(() => {
 
@@ -201,18 +213,43 @@ setInterval(() => {
   setScreenSize(window.innerWidth)
 },500)
 
+const [messageLogOut, setMessageLogOut] = useState('')
+const [messageDisplayState, setMessageDisplayState] = useState('-50%')
+
   return (
     <div className='app'>
       <Header
       handleLogin = {() => {
-        setCarouselPage(pages.page3)
-        setCognitoDisplayState('50%')
+        if(isLogged)
+        {
+          setMessageLogOut(`You are already logged as ${login}, to pursue this action please log out first.`)
+          setMessageDisplayState('50%')
+        }
+        else
+        {
+          setCarouselPage(pages.page3)
+          setCognitoDisplayState('50%')
+        }
       }}
 
+      checkIfLogged = {isLogged}
+
+      loggedAccount = {login}
+
       handleSignIn = {() => {
-        setCarouselPage(pages.page1)
-        setCognitoDisplayState('50%')
+        if(isLogged)
+        {
+          setMessageLogOut(`You are already logged as ${login}, to pursue this action please log out first.`)
+          setMessageDisplayState('50%')
+        }
+        else
+        {
+          setCarouselPage(pages.page1)
+          setCognitoDisplayState('50%')
+        }
       }}
+
+      handleSignOut = {onSubmiSignOut}
 
       handleUrl = {() => setPromptDisplay('40%') }
 
@@ -261,13 +298,6 @@ setInterval(() => {
           cognitoDisplay={cognitoDisplayState}
           handleCognitoClose ={() => setCognitoDisplayState('-50%')}
 
-          handleCarouselSignIn = {() => {
-            setCarouselPage(pages.page2)
-          }}
-          handleCarouselVerify = {() => {
-            setCarouselPage(pages.page3)
-          }}
-
           // Sign in 
 
           HandleonSubmitSignIn = {onSubmitSignIn}
@@ -300,6 +330,11 @@ setInterval(() => {
           valuePasswordLogin = {passwordLogin}
 
           errorMessageLogin = {errorLogin}
+          />
+          <Message 
+            message = {messageLogOut}
+            messageDisplay = {messageDisplayState}
+            closeMessageDisplay = {() => setMessageDisplayState('-50%')}
           />
     </div>
   )
