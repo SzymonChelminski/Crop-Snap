@@ -709,6 +709,7 @@ html {
   width: 100vw;
   background-color: rgb(231, 231, 231);
   padding: 3rem 0 3rem 0;
+  overflow: hidden;
 }
 
 .content__fourth__outline > .content__container {

@@ -83,7 +83,7 @@ const onSubmitLogin =(e: any) => {
     user.authenticateUser(authDetails, {
         onSuccess: (data) => {
             console.log('onSucces: ', data)
-            setCognitoDisplayState('-50%')
+            setCognitoDisplayState('-100%')
             setErrorLogin('')
             setIslogged(true)
         },
@@ -137,7 +137,7 @@ function onSubmiSignOut(e: any){
   e.preventDefault();
 }
 
-const [cognitoDisplayState, setCognitoDisplayState] = useState('-50%')
+const [cognitoDisplayState, setCognitoDisplayState] = useState('-100%')
 
 
 //filerbot
@@ -214,7 +214,7 @@ setInterval(() => {
 },500)
 
 const [messageLogOut, setMessageLogOut] = useState('')
-const [messageDisplayState, setMessageDisplayState] = useState('-50%')
+const [messageDisplayState, setMessageDisplayState] = useState('-100%')
 
   return (
     <div className='app'>
@@ -252,9 +252,9 @@ const [messageDisplayState, setMessageDisplayState] = useState('-50%')
       handleSignOut = {onSubmiSignOut}
 
       handleUrl = {() => setPromptDisplay('40%') }
-
+openImgEditor
       handleOpenImageEditor = {() => {
-        imgUrl !== '' ? setIsImgEditorShown(true) : setPromptDisplay('40%')
+        imgUrl !== '' ? openImgEditor() : setPromptDisplay('40%')
         screenSize < 768 ? alert('We are still working on an mobile version :)') : console.log()
       }}
       />
@@ -296,7 +296,7 @@ const [messageDisplayState, setMessageDisplayState] = useState('-50%')
           />
           <Cognito
           cognitoDisplay={cognitoDisplayState}
-          handleCognitoClose ={() => setCognitoDisplayState('-50%')}
+          handleCognitoClose ={() => setCognitoDisplayState('-100%')}
 
           // Sign in 
 
@@ -334,7 +334,7 @@ const [messageDisplayState, setMessageDisplayState] = useState('-50%')
           <Message 
             message = {messageLogOut}
             messageDisplay = {messageDisplayState}
-            closeMessageDisplay = {() => setMessageDisplayState('-50%')}
+            closeMessageDisplay = {() => setMessageDisplayState('-100%')}
           />
     </div>
   )
